@@ -1,4 +1,43 @@
 {
+<<<<<<< HEAD
+  "name": "zarplaces",
+  "private": true,
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "serve": "webpack-dev-server --mode development --host 192.168.0.252",
+    "build": "webpack --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "7.21.4",
+    "@babel/preset-env": "7.21.4",
+    "babel-loader": "9.1.2",
+    "copy-webpack-plugin": "11.0.0",
+    "css-loader": "6.7.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "image-minimizer-webpack-plugin": "^4.1.0",
+    "imagemin": "^9.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "style-loader": "3.3.2",
+    "webpack": "5.79.0",
+    "webpack-cli": "5.0.1",
+    "webpack-dev-server": "4.13.3"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "dayjs": "^1.11.13",
+    "express": "^4.19.2"
+  }
+=======
   "name": "catalogus",
   "version": "1.0.0",
   "main": "index.js",
@@ -8,4 +47,5 @@
   "author": "",
   "license": "ISC",
   "description": ""
+>>>>>>> cfddbcc (Initial commit)
 }
