@@ -41,7 +41,7 @@
   align-items: center;
 }
 
-.info__item > .info__item-text:last-of-type {
+.info__item>.info__item-text:last-of-type {
   margin: 0;
 }
 

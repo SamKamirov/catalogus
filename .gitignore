@@ -1,4 +1,4 @@
-/node_modules/
-**.zip
-/public/images
-/dist
+/node_modules
+server/node_modules
+/.idea
+./pnpm-lock.yaml

@@ -1,4 +1,4 @@
-import { getPlaces } from "../vendor/places";
+import { getPlaces } from "../vendor/places.js";
 
 export default class PlacesModel {
   #places = getPlaces();

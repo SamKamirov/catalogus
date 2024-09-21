@@ -62,7 +62,8 @@ ul {
 }
 
 .main-header,
-.main {
+.main,
+#root {
   min-width: 320px;
   max-width: 430px;
 }
@@ -76,28 +77,32 @@ ul {
   background-repeat: no-repeat;
 }
 
-.main {
+.main,
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px;
   width: 100%;
   /*opacity: 0.3;*/
   /*margin-top: 40px;*/
+}
+
+.main {
+  padding: 0 16px;
 }
 
 .main--scrolled {
   /*padding-top: 129px;*/
 }
 
-.main > * {
+.main>* {
   max-width: 430px;
   width: 100%;
 }
 
 .background-wrapper {
   margin: -29px 0 20px 0;
-  padding: 40px 22px 17px 22px;
+  padding: 40px 22px 22px 22px;
   background-color: #303034;
   border-radius: 15px;
 }
@@ -132,6 +137,10 @@ ul {
 
 .search.search--scrolled.background-wrapper {
   margin: 0;
+}
+
+.search.search--scrolled+.places {
+  margin-top: 227px;
 }
 
 .search__info {
@@ -241,7 +250,7 @@ ul {
 }
 
 .places.places--scrolled {
-  margin-top: 238px;
+  margin-top: 225px;
 }
 
 .places-title {
@@ -330,6 +339,7 @@ ul {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 360px) {
+
   /** {*/
   /*  font-size: 14px;*/
   /*}*/

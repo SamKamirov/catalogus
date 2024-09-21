@@ -1,24 +1,32 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const autoprefixer = require("autoprefixer");
+const HtmlPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  mode: "development",
   devtool: "source-map",
+  entry: "./index.jsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle[contenthash].js",
+    filename: "bundle.[contenthash].js",
+    path: path.resolve(__dirname, "build"),
     clean: true,
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./index.html",
+    new HtmlPlugin({
+      template: "./src/index.html",
     }),
-    new CopyWebpackPlugin({
+    new CopyPlugin({
       patterns: [
         {
-          from: "public",
+          from: "src",
+          globOptions: {
+            ignore: ["**/index.html"],
+          },
         },
       ],
     }),
@@ -26,66 +34,61 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.(html)$/,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.jsx?$/,
+        exclude: [/node_modules/],
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ["@babel/preset-react"],
           },
         },
       },
       {
-        test: /\.(jpe?g|png|svg)$/i,
-        exclude: /node_modules/,
-        use: ["file-loader", "url-loader"],
-        type: "asset",
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: [/node_modules/],
       },
       {
-        test: /\.css$/i,
-        use: ["css-loader", "sass-loader"],
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [autoprefixer],
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
+      },
+      {
+        test: /\.(woff|woff2?|eot|ttf|otf)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
-  // optimization: {
-  //   minimizer: [
-  //     "...",
-  //     new ImageMinimizerPlugin({
-  //       exclude: /node_modules/,
-  //       minimizer: {
-  //         implementation: ImageMinimizerPlugin.imageminMinify,
-  //         options: {
-  //           // Lossless optimization with custom option
-  //           // Feel free to experiment with options for better result for you
-  //           plugins: [
-  //             ["gifsicle", { interlaced: true }],
-  //             ["jpegtran", { progressive: true }],
-  //             ["optipng", { optimizationLevel: 5 }],
-  //             // Svgo configuration here https://github.com/svg/svgo#configuration
-  //             [
-  //               "svgo",
-  //               {
-  //                 plugins: [
-  //                   {
-  //                     name: "preset-default",
-  //                     addAttributesToSVGElement: {
-  //                       params: {
-  //                         attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-  //                       },
-  //                     },
-  //                     params: {
-  //                       overrides: {
-  //                         removeViewBox: false,
-  //                       },
-  //                     },
-  //                   },
-  //                 ],
-  //               },
-  //             ],
-  //           ],
-  //         },
-  //       },
-  //     }),
-  //   ],
-  // },
+  resolve: {
+    extensions: [".tsx", ".jsx", ".ts", ".js"],
+  },
 };

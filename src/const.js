@@ -1,4 +1,5 @@
-const sortingOrder = [
+
+export const sortingOrder = [
   "Ресторан",
   "Кафе",
   "Кофейня",
@@ -9,11 +10,8 @@ const sortingOrder = [
   "Бар",
 ];
 
-const sortByObjectOrder = sortingOrder.reduce((obj, item, index) => {
-  return {
-    ...obj,
-    [item]: index,
-  };
-}, {});
+export const sliceNames = {
+  AppData: 'AppData',
+  UserData: 'UserData'
+}
 
-export { sortByObjectOrder, sortingOrder };
