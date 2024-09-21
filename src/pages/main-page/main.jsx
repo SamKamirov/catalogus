@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Search } from "../../components/search-view";
 import { PlacesListView } from "../../components/places-list/places-list-view";
 import { useDispatch } from "react-redux";
@@ -25,7 +25,7 @@ export const Main = () => {
     return
   }
 
-  const onBodyScroll = (placesTitle) => {
+  const onBodyScroll = (evt, placesTitle) => {
     checkIsSearchScrolled(setSearchIsScrolled)
     setFilterOnScroll(placesTitle)
   }
@@ -34,13 +34,13 @@ export const Main = () => {
     checkIsSearchScrolled(setSearchIsScrolled)
 
     const placesTitle = document.querySelectorAll('.places-title')
-    window.addEventListener('scroll', () => onBodyScroll(placesTitle))
+    window.addEventListener('scroll', (evt) => onBodyScroll(evt, placesTitle))
   }, [])
 
   return (
-    <main className="main" >
+    <Fragment >
       <Search isSearchScrolled={searchIsScrolled} />
       <PlacesListView />
-    </main>
+    </Fragment>
   )
 };

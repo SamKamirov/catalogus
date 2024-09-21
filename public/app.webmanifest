@@ -1,0 +1,53 @@
+{
+  "short_name": "Zar Places",
+  "name": "Zar Places",
+  "icons": [
+    {
+      "src": "./icons/1024-square.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "./icons/1024-round.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "./icons/384-square.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "./icons/384-round.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "./icons/192-square.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icons/192-round.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/web-panel-540x720.jpg",
+      "type": "image/jpg",
+      "sizes": "540x540",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/web-panel-720x540.jpg",
+      "type": "image/jpg",
+      "sizes": "540x540",
+      "form_factor": "wide"
+    }
+  ]
+}

@@ -32,7 +32,7 @@ export const Filters = () => {
 
     if (titleToScroll) {
       titleToScroll.scrollIntoView({ behavior: 'smooth' })
-      window.scrollBy({ top: titleToScroll.getBoundingClientRect().y - 127, behavior: 'smooth' })
+      window.scrollBy({ top: titleToScroll.getBoundingClientRect().y - 127, behavior: 'instant' })
     }
   }
 

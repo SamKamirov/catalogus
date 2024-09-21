@@ -7,7 +7,7 @@ import { ReturnButon } from "../../components/return-button/return-button";
 
 const renderPhones = (phone) => {
   if (!Array.isArray(phone)) return <li><a className="info__item-text" href={`tel:${phone}`} target="_blank">{phone}</a></li>
-  return phone.map((item, index) => <li><a className="info__item-text" href={`tel:${item}`} target="_blank" key={index}>{item}</a></li>)
+  return phone.map((item, index) => <li key={index}><a className="info__item-text" href={`tel:${item}`} target="_blank" key={index}>{item}</a></li>)
 }
 
 const renderWorkTime = (workTime) => {
@@ -17,13 +17,9 @@ const renderWorkTime = (workTime) => {
         return <p className="info__item-text" key={index}>{item[0]} {item[1]}</p>;
       }
 
-      return <p className="info__item-text">{item}</p>;
+      return <p className="info__item-text" key={item}>{item}</p>;
     })
 }
-
-const renderReturnButton = () => {
-}
-
 
 export const PlacePage = () => {
   const { id } = useParams();
@@ -33,7 +29,6 @@ export const PlacePage = () => {
 
   useEffect(() => {
     if (!filteredPlace) return <NotFoundPage />
-    renderReturnButton()
   }, [])
 
   const { name, address, logo, location, workTime, website, phone } = filteredPlace
