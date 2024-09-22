@@ -3,4 +3,5 @@ server/node_modules
 /.idea
 ./pnpm-lock.yaml
 /public/images/
+/build
 
