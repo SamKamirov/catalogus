@@ -980,7 +980,7 @@ const places = [
     id: 31,
     logo: '/images/Panda/photo/logo/logo.jpg',
     weekTime: {
-      Mon: 'Закыто',
+      Mon: 'Закрыто',
       Tue: { startWork: '11:00', endWork: '22:00' },
       Wed: { startWork: '11:00', endWork: '22:00' },
       Thu: { startWork: '11:00', endWork: '22:00' },
