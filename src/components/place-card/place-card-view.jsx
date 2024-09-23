@@ -19,7 +19,6 @@ function checkIsPlaceOpened(name, weekTime) {
   const currentHour = Number(dayjs().format('HH'));
   const currentMinutes = dayjs().minute();
   const placeCurrentWorkTime = weekTime[today];
-  console.log(placeCurrentWorkTime);
 
   if (placeCurrentWorkTime === 'Закрыто') return [false, `Закрыто`];
 
